@@ -39,7 +39,7 @@ func _get_longest_diagonal(voxels : Texture3D) -> int:
 	return longest_diagonal
 
 func _enter_tree() -> void:
-	if mesh == null:
+	if Engine.is_editor_hint() && mesh == null:
 		var box : BoxMesh = BoxMesh.new()
 		box.flip_faces = true
 		mesh = box

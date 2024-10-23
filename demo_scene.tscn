@@ -1,0 +1,19 @@
+[gd_scene load_steps=5 format=3 uid="uid://bqclun2fh5tpy"]
+
+[ext_resource type="Material" uid="uid://cm3vkfoxsdjbv" path="res://addons/VoxelRaymarcher/voxel_mat.tres" id="1_cyo5m"]
+[ext_resource type="Script" path="res://addons/VoxelRaymarcher/voxel_model.gd" id="1_fwiln"]
+[ext_resource type="CompressedTexture3D" uid="uid://jtw4sfsfeejb" path="res://example voxels/DemoTank.png" id="2_efkqh"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_mxp27"]
+flip_faces = true
+size = Vector3(2.5, 2.5, 3.6)
+
+[node name="Demo Scene" type="Node3D"]
+
+[node name="DemoTank" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+mesh = SubResource("BoxMesh_mxp27")
+surface_material_override/0 = ExtResource("1_cyo5m")
+script = ExtResource("1_fwiln")
+voxels = ExtResource("2_efkqh")
+voxel_scale = 0.1

@@ -1,0 +1,12 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cm3vkfoxsdjbv"]
+
+[ext_resource type="Shader" path="res://addons/VoxelRaymarcher/voxel_raymarcher.gdshader" id="1_r4bj5"]
+[ext_resource type="CompressedTexture3D" uid="uid://jtw4sfsfeejb" path="res://example voxels/DemoTank.png" id="2_t52rm"]
+
+[resource]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_r4bj5")
+shader_parameter/voxel_scale = 0.1
+shader_parameter/voxel_longest_diagonal = 50
+shader_parameter/voxel_data = ExtResource("2_t52rm")

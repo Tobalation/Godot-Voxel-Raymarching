@@ -1,7 +1,7 @@
 // Based on original shader code by Zylann
 // https://github.com/Zylann/voxel_raytracing/blob/master/voxel_raster.shader
 // Uses MagicaVoxel PNG slice exports imported as 3D textures for voxel data
-// ©2024 Dan Suwanseree
+// ©2025 Dan Suwanseree
 
 shader_type spatial;
 render_mode shadows_disabled, cull_front, diffuse_toon, specular_toon;

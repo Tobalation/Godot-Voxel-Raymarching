@@ -1,12 +1,11 @@
 [gd_scene load_steps=9 format=3 uid="uid://bqclun2fh5tpy"]
 
-[ext_resource type="Script" path="res://addons/VoxelRaymarcher/voxel_model.gd" id="1_fwiln"]
-[ext_resource type="Shader" path="res://addons/VoxelRaymarcher/voxel_raymarcher.gdshader" id="1_ijt6r"]
+[ext_resource type="Script" uid="uid://dkobmac55p026" path="res://addons/VoxelRaymarcher/voxel_model.gd" id="1_fwiln"]
+[ext_resource type="Shader" uid="uid://bwb6egkire3kp" path="res://addons/VoxelRaymarcher/voxel_raymarcher.gdshader" id="1_ijt6r"]
 [ext_resource type="CompressedTexture3D" uid="uid://jtw4sfsfeejb" path="res://example voxels/DemoTank.png" id="2_efkqh"]
-[ext_resource type="Material" uid="uid://cm3vkfoxsdjbv" path="res://addons/VoxelRaymarcher/voxel_mat.tres" id="4_if3n2"]
 [ext_resource type="CompressedTexture3D" uid="uid://5fjc1v0k2ql2" path="res://example voxels/golem.png" id="5_omv6d"]
 
-[sub_resource type="BoxMesh" id="BoxMesh_k6qgx"]
+[sub_resource type="BoxMesh" id="BoxMesh_1hm1i"]
 flip_faces = true
 size = Vector3(2.5, 2.5, 3.6)
 
@@ -14,19 +13,27 @@ size = Vector3(2.5, 2.5, 3.6)
 resource_local_to_scene = true
 render_priority = 0
 shader = ExtResource("1_ijt6r")
+shader_parameter/voxel_data = ExtResource("2_efkqh")
 shader_parameter/voxel_scale = 0.1
 shader_parameter/voxel_longest_diagonal = 50
-shader_parameter/voxel_data = ExtResource("2_efkqh")
 
-[sub_resource type="BoxMesh" id="BoxMesh_l08gn"]
+[sub_resource type="BoxMesh" id="BoxMesh_om45m"]
 flip_faces = true
 size = Vector3(2.8, 2.7, 2.5)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ctgmk"]
+resource_local_to_scene = true
+render_priority = 0
+shader = ExtResource("1_ijt6r")
+shader_parameter/voxel_data = ExtResource("5_omv6d")
+shader_parameter/voxel_scale = 0.1
+shader_parameter/voxel_longest_diagonal = 46
 
 [node name="Demo Scene" type="Node3D"]
 
 [node name="DemoTank" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 1.2, 0)
-mesh = SubResource("BoxMesh_k6qgx")
+mesh = SubResource("BoxMesh_1hm1i")
 surface_material_override/0 = SubResource("ShaderMaterial_gtoh7")
 script = ExtResource("1_fwiln")
 voxels = ExtResource("2_efkqh")
@@ -34,8 +41,8 @@ voxel_scale = 0.1
 
 [node name="Golem" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 1.36, 0)
-mesh = SubResource("BoxMesh_l08gn")
-surface_material_override/0 = ExtResource("4_if3n2")
+mesh = SubResource("BoxMesh_om45m")
+surface_material_override/0 = SubResource("ShaderMaterial_ctgmk")
 script = ExtResource("1_fwiln")
 voxels = ExtResource("5_omv6d")
 voxel_scale = 0.1
